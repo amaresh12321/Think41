@@ -1,0 +1,8 @@
+create table user(id int primary key,first_name varchar(25), last_name varchar(30), email varchar(100),age int, gender char, state varchar(10), address varchar(100), city varchar(50), country varchar(20), latitude numeric(15,10), longitude numeric(15,10), created_at timestamp);
+
+LOAD DATA LOCAL INFILE 'C:\Users\Amaresh\Downloads\archive\users.csv' INTO TABLE user FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 LINES; -- Skip header, if present
+
+create table order(order_id int primary key,user_id int foreign key references user(id), status varchar(10), gender char, created_at timestamp), returned_at timestamp), shipped_at timestamp), delivered_at timestamp), no_of_item int);
+
+LOAD DATA LOCAL INFILE 'C:\Users\Amaresh\Downloads\archive\orders.csv' INTO TABLE order FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 LINES; -- Skip header, if present
+Footer
